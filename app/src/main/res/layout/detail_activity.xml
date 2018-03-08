@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:id="@+id/obachanImage"
+        android:layout_width="match_parent"
+        android:layout_height="400px"
+        android:layout_marginBottom="30px"
+        android:background="@drawable/facetop"
+        />
+
+    <TextView
+        android:id="@+id/detail_content"
+        android:layout_width="500px"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_gravity="center"
+        android:text="吹田の駐車場のマップがほしい"
+        android:background="@drawable/border"
+        android:layout_marginBottom="20px"/>
+
+        <TextView
+            android:id="@+id/detail_place"
+            android:layout_width="400px"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="大阪府 吹田市"/>
+
+        <TextView
+            android:id="@+id/detail_date"
+            android:layout_width="400px"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="2018/03/08"
+            />
+
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:id="@+id/contents"
+        android:layout_width="match_parent"
+        android:layout_height="250px"
+        android:layout_marginLeft="50px"
+        android:layout_marginRight="50px"
+        android:background="#ffdddd"
+        android:layout_marginBottom="30px">
+
+        <TextView
+            android:id="@+id/detail_age"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/detail_sex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/sendButton"
+        android:layout_width="match_parent"
+        android:layout_height="90px"
+        android:background="@drawable/marubotan"
+        android:layout_marginRight="10px"
+        android:layout_marginLeft="10px"
+        android:layout_marginBottom="30px"
+        android:textColor="#ffffff"
+        android:text="送信する"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/detail_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    </android.support.v7.widget.RecyclerView>
+
+
+</LinearLayout>

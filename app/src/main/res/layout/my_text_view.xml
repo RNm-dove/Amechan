@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:layout_height="120px"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ImageView
+        android:id="@+id/rankimage"
+        android:layout_width="60px"
+        android:layout_height="60px"
+        android:background="@color/colorPrimary"
+        android:layout_marginTop="30px"
+        android:layout_marginLeft="30px"
+        android:layout_marginBottom="30px"/>
+
+    <ImageView
+        android:id="@+id/profileimage"
+        android:layout_width="60px"
+        android:layout_height="60px"
+        android:layout_alignBottom="@+id/rankimage"
+        android:layout_toRightOf="@+id/rankimage"
+        android:layout_marginLeft="20px"
+        android:background="@color/colorAccent"/>
+
+    <TextView
+        android:id="@+id/name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/profileimage"
+        android:layout_marginLeft="20px"
+        android:layout_marginBottom="15px"
+        android:layout_alignBottom="@+id/rankimage"
+        android:text="name"/>
+
+    <ImageView
+        android:id="@+id/candyimage"
+        android:layout_width="45px"
+        android:layout_height="45px"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="150px"
+        android:layout_marginBottom="25px"
+        android:layout_alignParentEnd="true"
+        android:background="@color/colorPrimaryDark" />
+
+    <TextView
+        android:id="@+id/score"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="30px"
+        android:text="score"/>
+
+
+</RelativeLayout>
