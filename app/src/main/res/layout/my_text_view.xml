@@ -1,54 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout android:layout_height="120px"
-    android:layout_width="match_parent"
+<android.support.v7.widget.CardView android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="#FFF"
+    android:layout_marginRight="25dp"
+    android:layout_marginLeft="25dp"
     xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <ImageView
-        android:id="@+id/rankimage"
-        android:layout_width="60px"
-        android:layout_height="60px"
-        android:background="@color/colorPrimary"
-        android:layout_marginTop="30px"
-        android:layout_marginLeft="30px"
-        android:layout_marginBottom="30px"/>
+    <LinearLayout
+        android:paddingBottom="16dp"
+        android:paddingTop="2dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <ImageView
-        android:id="@+id/profileimage"
-        android:layout_width="60px"
-        android:layout_height="60px"
-        android:layout_alignBottom="@+id/rankimage"
-        android:layout_toRightOf="@+id/rankimage"
-        android:layout_marginLeft="20px"
-        android:background="@color/colorAccent"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/name"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/profileimage"
-        android:layout_marginLeft="20px"
-        android:layout_marginBottom="15px"
-        android:layout_alignBottom="@+id/rankimage"
-        android:text="name"/>
+        <ImageView
+            android:background="@drawable/guest_icon"
+            android:id="@+id/user_image"
+            android:layout_width="100px"
+            android:layout_height="100px"
+            />
 
-    <ImageView
-        android:id="@+id/candyimage"
-        android:layout_width="45px"
-        android:layout_height="45px"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="150px"
-        android:layout_marginBottom="25px"
-        android:layout_alignParentEnd="true"
-        android:background="@color/colorPrimaryDark" />
-
-    <TextView
-        android:id="@+id/score"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="30px"
-        android:text="score"/>
+        <TextView
+            android:text="名前"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/user_name_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
 
-</RelativeLayout>
+
+    </LinearLayout>
+
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:id="@+id/user_comment"
+            android:layout_below="@id/user_name_title"
+            android:layout_toRightOf="@id/user_image"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+
+    </LinearLayout>
+
+
+</android.support.v7.widget.CardView>

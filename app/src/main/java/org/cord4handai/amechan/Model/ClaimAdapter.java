@@ -19,6 +19,8 @@ import java.util.List;
 
 public class ClaimAdapter extends RecyclerView.Adapter<ClaimAdapter.MyViewHolder> {
 
+
+
     private Context context;
     private OnClaimItemClickListener onClaimItemClickListener;
     private List<ClaimService.Claim> items;
@@ -53,6 +55,8 @@ public class ClaimAdapter extends RecyclerView.Adapter<ClaimAdapter.MyViewHolder
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
+
         final View view = LayoutInflater.from(context).inflate(R.layout.claim_item, parent, false);
         return new MyViewHolder(view);
     }
@@ -72,8 +76,8 @@ public class ClaimAdapter extends RecyclerView.Adapter<ClaimAdapter.MyViewHolder
 
 
         holder.claimContent.setText(item.content);
-        holder.claimSubmit.setText(String.valueOf(item.submit));
-        holder.claimAge.setText(String.valueOf(item.age));
+        holder.claimSubmit.setText(Where.judgeWhereFromInt(item.submit).name());
+        holder.claimAge.setText(String.valueOf(item.age) + "代");
         holder.claimSex.setText(Sex.judgeSexFromInt(item.sex).name());
         //holder.claimCreatedAt.setText("createdAt:" + String.valueOf(item.age));
 
@@ -92,6 +96,8 @@ public class ClaimAdapter extends RecyclerView.Adapter<ClaimAdapter.MyViewHolder
         this.items = items;
         notifyDataSetChanged();
     }
+
+
 
     @Override
     public int getItemCount() {

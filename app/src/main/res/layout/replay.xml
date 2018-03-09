@@ -2,38 +2,53 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
+    android:id="@+id/replat_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:padding="20dp"
     tools:context=".Activity.DetailActivity">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:layout_marginBottom="20dp"
+        android:textSize="20dp"
+        android:textColor="#f8b800"
+        android:textStyle="bold"
         android:text="コメント"/>
 
     <EditText
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="200dp"
+        android:layout_marginBottom="30dp"
         android:id="@+id/comment"/>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:layout_marginBottom="20dp"
         android:gravity="center"
+        android:textColor="#f8b800"
+        android:textStyle="bold"
         android:text="URL"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="30dp"
         android:id="@+id/url"/>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="投稿"
+        android:text="解決策を投稿"
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:textColor="#fff"
+        android:background="#f8b800"
         android:id="@+id/sendingbutton"/>
 
 

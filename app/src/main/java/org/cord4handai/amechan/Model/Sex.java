@@ -5,12 +5,12 @@ package org.cord4handai.amechan.Model;
  */
 
 public enum Sex {
-    Mele,
+    Male,
     Female;
 
     public static Sex judgeSexFromInt(int i){
         if(i == 1){
-            return Mele;
+            return Male;
         } else if ( i== 2){
             return Female;
         } else {

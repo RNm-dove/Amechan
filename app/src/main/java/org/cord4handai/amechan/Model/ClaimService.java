@@ -8,6 +8,7 @@ import java.util.List;
 
 import io.reactivex.Single;
 import retrofit2.http.GET;
+import retrofit2.http.Query;
 
 /**
  * Created by ryosuke on 2018/03/08.
@@ -17,6 +18,9 @@ public interface ClaimService{
 
     @GET("search")
     Single<ListClaim> getClaims();
+
+    @GET("comment")
+    Single<ListComment> getComments(@Query("id") int id);
 
 
     public static class ListClaim {
@@ -65,8 +69,35 @@ public interface ClaimService{
 
     }
 
+    public static class ListComment{
+        @Expose
+        @SerializedName("claim")
+        public final List<Comment> items;
+
+        public ListComment(List<Comment> items) {
+            this.items = items;
+        }
+    }
+
     public static class Comment{
 
+        @Expose
+        @SerializedName("user_name")
+        public final String userName;
+
+        @Expose
+        @SerializedName("content")
+        public final String content;
+
+        public Comment(String userName, String content) {
+            this.userName = userName;
+            this.content = content;
+        }
+
+        @Override
+        public String toString() {
+            return "user_name:" + userName + "content:" + content;
+        }
     }
 
 }

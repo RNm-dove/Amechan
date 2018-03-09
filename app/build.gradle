@@ -17,21 +17,21 @@ android {
         }
     }
 
-    compileOptions{
+    compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
 }
 
-ext{
+ext {
     retrofitVersion = '2.3.0'
     autoValueVersion = '1.5.1'
     autoValueMoshiVersion = '0.4.3'
     moshiVersion = '1.5.0'
-    rxJavaVersion ='2.1.4'
-    rxAndroidVersion='2.0.1'
-    androidSupportVersion='26.1.0'
-    okhttp3Version='3.0.1'
+    rxJavaVersion = '2.1.4'
+    rxAndroidVersion = '2.0.1'
+    androidSupportVersion = '26.1.0'
+    okhttp3Version = '3.0.1'
 }
 
 dependencies {
@@ -51,6 +51,7 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxjava:$rxJavaVersion"
     implementation "io.reactivex.rxjava2:rxandroid:$rxAndroidVersion"
 
+    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'

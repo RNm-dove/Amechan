@@ -2,13 +2,29 @@ package org.cord4handai.amechan.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.View;
+import android.widget.Button;
+import android.widget.FrameLayout;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import org.cord4handai.amechan.Model.ClaimService;
+import org.cord4handai.amechan.Model.Sex;
+import org.cord4handai.amechan.MyApplication;
 import org.cord4handai.amechan.R;
+import org.json.JSONException;
+
+import java.io.IOException;
+
+import io.reactivex.Single;
+import io.reactivex.android.schedulers.AndroidSchedulers;
+import io.reactivex.schedulers.Schedulers;
+import retrofit2.HttpException;
 
 public class DetailActivity extends AppCompatActivity {
 
@@ -17,6 +33,7 @@ public class DetailActivity extends AppCompatActivity {
     private LinearLayoutManager mLayoutManager;
     private DetailAdapter mAdapter;
     private ClaimService.Claim mItem;
+    private ProgressBar mProgressBar;
 
 
     @Override
@@ -39,7 +56,7 @@ public class DetailActivity extends AppCompatActivity {
         TextView whereText = findViewById(R.id.detail_place);
 
         ageText.setText(String.valueOf(mItem.age));
-        sexText.setText(String.valueOf(mItem.sex));
+        sexText.setText(Sex.judgeSexFromInt(mItem.sex).name());
         contentText.setText(mItem.content);
         whereText.setText("吹田市");
 
@@ -57,6 +74,58 @@ public class DetailActivity extends AppCompatActivity {
         // specify an adapter (see also next example)
         mAdapter = new DetailAdapter();
         mRecyclerView.setAdapter(mAdapter);
+
+        mProgressBar = (ProgressBar)findViewById(R.id.detail_progress_bar);
+
+        Button button = findViewById(R.id.sendButton);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(DetailActivity.this, SubmitActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        loadComments();
+    }
+
+    private void loadComments() {
+
+        FrameLayout layout = findViewById(R.id.detail_container);
+
+        Single<ClaimService.ListComment> comment = ((MyApplication)getApplication()).getClaimService().getComments(7);
+
+        comment
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(
+                        commentList -> {
+                            mProgressBar.setVisibility(View.GONE);
+                            mAdapter.setItemAndReflesh(commentList.items);
+
+                        },
+                        throwable -> {
+                            if (throwable instanceof HttpException) {
+                                // We had non-2XX http error
+                                Log.d("TAG", "httpExeption" + throwable.getMessage());
+                            }
+                            if (throwable instanceof IOException) {
+                                // A network or conversion error happened
+                                Log.d("TAG", "ioExeption" + throwable.getMessage());
+                            }
+                            if(throwable instanceof JSONException){
+                                Log.d("TAG", "JSONExeption" + throwable.getMessage());
+                            }
+
+                            Log.d("TAG",  throwable.getMessage());
+
+                            Snackbar.make(layout, "読み込めませんでした。", Snackbar.LENGTH_LONG)
+                                    .setAction("Action", null).show();
+                        }
+
+
+                );
     }
 
 }

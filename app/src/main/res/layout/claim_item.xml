@@ -9,6 +9,7 @@
     android:foreground="?selectableItemBackground"
     android:orientation="vertical"
     app:cardUseCompatPadding="true"
+    android:background="#FFF"
     >
 
     <LinearLayout
