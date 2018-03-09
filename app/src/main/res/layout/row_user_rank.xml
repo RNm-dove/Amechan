@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="16dp"
+    android:padding="16dp"
+    android:background="#FFF"
+    android:layout_marginRight="25dp"
+    android:layout_marginLeft="25dp"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <RelativeLayout
+        android:padding="16dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:background="@drawable/guest_icon"
+            android:id="@+id/user_image"
+            android:layout_width="100px"
+            android:layout_height="100px"
+            android:layout_alignParentLeft="true"/>
+
+        <TextView
+            android:text="名前"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/user_rank_name"
+            android:layout_toRightOf="@id/user_image"
+            android:layout_width="wrap_content"
+            android:layout_height="100px" />
+
+
+        <ImageView
+            android:layout_toLeftOf="@id/fav_numver_text"
+            android:background="@drawable/like_push"
+            android:layout_width="50px"
+            android:layout_height="50px" />
+
+        <TextView
+            android:layout_alignParentRight="true"
+            android:text="100"
+            android:id="@+id/fav_numver_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+</android.support.v7.widget.CardView>
